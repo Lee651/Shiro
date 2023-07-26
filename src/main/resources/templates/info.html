@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>用户详情</title>
+</head>
+<body>
+    <h1>Shiro登录认证后主页面</h1><br>
+    登录用户为：<span th:text="${session.user}"></span><br><br>
+    <a href="/logout">退出登录</a><br><br>
+    <!--shiro:hasRole="admin"表示当有admin权限是才会展示-->
+    <a shiro:hasRole="admin" href="/shiro/roles">验证角色</a><br><br>
+    <!--shiro:hasPermission="user:add"表示当又user:add权限时才会展示-->
+    <a shiro:hasPermission="user:add" href="/shiro/permission">验证权限</a>
+</body>
+</html>
